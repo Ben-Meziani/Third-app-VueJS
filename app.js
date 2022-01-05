@@ -7,14 +7,20 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    outputFullname(){
+      if(this.name === ''){
+        return '';
+      } 
+        return this.name + ' ' + 'Meziani';
+    },
     confirmInput() {
       this.confirmedName = this.name
     },
     submitForm() {
       alert("Submitted !")
     },
-    setName(event, lastName) {
-      this.name = event.target.value + ' ' + lastName;
+    setName(event) {
+      this.name = event.target.value;
     },
     add(num) {
       this.counter = this.counter + num
@@ -23,6 +29,9 @@ const app = Vue.createApp({
     remove(num) {
       this.counter = this.counter - num
       //this.counter--;
+    },
+    resetInput(){
+      this.name = '';
     }
   }
 });
